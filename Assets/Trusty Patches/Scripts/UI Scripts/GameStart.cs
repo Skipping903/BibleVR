@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameStart : MonoBehaviour
 {
@@ -8,26 +9,13 @@ public class GameStart : MonoBehaviour
     private bool hasStarted;
     public GameObject splashScreen;
 
-    void Awake()
-    {
-        this.hasStarted = false;
-    }
 
-    IEnumerator Start()
-    {
-        if (hasStarted == false)
-        {
-            AudioSource audio = GetComponent<AudioSource>();
-            audio.Play();
-            yield return new WaitForSeconds(audio.clip.length);
-            audio.clip = splashMusic;
-            audio.Play();
-        }
-    }
 
     public void ClickedStart()
     {
         this.hasStarted = true;
         this.splashScreen.SetActive(false);
+
+        //this.GetComponent<AudioSource>().Stop();        //removes music on start button click
     }
 }//class

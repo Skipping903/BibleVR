@@ -45,6 +45,8 @@ public class HeadPicker : MonoBehaviour
 
     void SwapHead()
     {
+        this.mainHead2 = GameObject.FindGameObjectWithTag("Head");
+        Debug.Log(this.mainHead2);
         if (this.clicked1 == true)
         {
             Destroy(this.currHead1);
